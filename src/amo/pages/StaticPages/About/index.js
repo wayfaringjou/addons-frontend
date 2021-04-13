@@ -185,6 +185,48 @@ export class AboutBase extends React.Component<Props> {
               )}
             />
           </section>
+          <section id="report-issue">
+            <h2>{i18n.gettext('Report an issue')}</h2>
+            <p
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`If you find a problem with the site, we'd love to fix it.
+                  Please file an %(startIssueLink)sissue%(endIssueLink)s and include as much
+                  detail as possible.`),
+                  {
+                    startIssueLink:
+                      '<a href="https://github.com/mozilla/addons/issues/new">',
+                    endIssueLink: '</a>',
+                  },
+                ),
+                ['a'],
+              )}
+            />
+            <p
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`To report a security vulnerability for an extension, even if it is not hosted
+                  on this site, please file an %(startBugzillaLink)sissue%(endBugzillaLink)s on Bugzilla or email
+                  %(startMailToAdmins)samo-admins@mozilla.com%(endMailToAdmins)s.
+                  All security vulnerability reports are %(startPolicyLink)sconfidential%(endPolicyLink)s.`),
+                  {
+                    startBugzillaLink:
+                      '<a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=addons.mozilla.org&component=Add-on%20Security&maketemplate=Add-on%20Security%20Bug&bit-23=1&rep_platform=All&op_sys=All">',
+                    endBugzillaLink: '</a>',
+                    startMailToAdmins:
+                      '<a href="mailto:amo-admins@mozilla.com">',
+                    endMailToAdmins: '</a>',
+                    startPolicyLink:
+                      '<a href="https://www.mozilla.org/en-US/about/governance/policies/security-group/bugs/">',
+                    endPolicyLink: '</a>',
+                  },
+                ),
+                ['a'],
+              )}
+            />
+          </section>
           <section>
             <h2>{i18n.gettext('Get support')}</h2>
             <p
